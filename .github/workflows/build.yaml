@@ -16,5 +16,24 @@ jobs:
     env:
         DJANGO_SECRET_KEY: not_so_secure_secret_key
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2
+      with: 
+        token: ${{ secrets.DO_API_TOKEN_KEY }}
+    - name: Login to DO container Registry with with api token 
+      run: doctl registry login --expiry-seconds 1200
+    - name: Build container image
+      working-directory: ./web
+      run: |
+        docker build -f Dockerfile \
+            -t registry.digitalocean.com/bluer-reg/django-k8s-web:latest \
+            -t registry.digitalocean.com/bluer-reg/django-k8s-web:${GITHUB_SHA::7} \
+            .
+    - name: Push Image
+      run: |
+        docker push registry.digitalocean.com/bluer-reg/django-k8s-web --all-tags
+    
+
     
