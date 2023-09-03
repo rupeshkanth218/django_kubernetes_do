@@ -1,0 +1,20 @@
+name: Build docker Image and push to Registry
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  
+
+jobs:
+
+  test_django_job:
+    uses: rupeshkanth218/django_kubernetes_do/.github/workflows/test_django.yaml@main
+  docker_build:
+
+    runs-on: ubuntu-latest 
+    needs: test_django_job   
+    env:
+        DJANGO_SECRET_KEY: not_so_secure_secret_key
+    steps:
+    - uses: actions/checkout@v3
+    
