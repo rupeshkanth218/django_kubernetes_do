@@ -167,4 +167,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-from .cdn.conf import *
+STATIC_LOCAL=os.environ.get("STATIC_LOCAL")
+if not STATIC_LOCAL:
+    from .cdn.conf import *
