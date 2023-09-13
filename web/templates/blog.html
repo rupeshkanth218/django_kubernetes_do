@@ -6,8 +6,11 @@ Blog
 {% endblock %}
 
 {% block content %}
-        
-    <h1>COMING SOON</h1>
-    
+       <ul>
+    {% for post in object_list %}
+        <li><a href="{% url 'home' %}">{{ post.title }}</a></li>
+
+    {% endfor %}
+    </ul> 
     
 {% endblock %}
