@@ -6,11 +6,13 @@ Blog
 {% endblock %}
 
 {% block content %}
-       <ul>
-    {% for post in object_list %}
-        <li><a href="{% url 'home' %}">{{ post.title }}</a></li>
+       
+    
+        {{ post.title }}
+        <br>
+        {{ post.body | safe }}
 
-    {% endfor %}
-    </ul> 
+    
+    
     
 {% endblock %}

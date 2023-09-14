@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 def home(request):
@@ -10,5 +10,8 @@ def about(request):
 
 class BlogList(ListView):
     model = Post
-    template_name = "blog.html"
+    template_name = "blogs.html"
 
+class BlogDetail(DetailView):
+    model = Post
+    template_name = "blog.html"

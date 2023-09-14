@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}     
+
+{% block title %}   
+Blog
+{% endblock %}
+
+{% block content %}
+       <ul>
+    {% for post in object_list %}
+        <li><a href="{% url 'detail' post.pk %}">{{ post.title }}</a></li>
+
+    {% endfor %}
+    </ul> 
+    
+{% endblock %}
