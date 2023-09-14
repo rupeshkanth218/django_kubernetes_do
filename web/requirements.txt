@@ -5,3 +5,6 @@ django-dotenv
 psycopg2-binary
 django-storages
 requests
+django-extensions==3.2.3
+django-ckeditor==6.7.0
+django-js-asset==2.1.0

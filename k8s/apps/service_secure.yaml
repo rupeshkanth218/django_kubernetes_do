@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: django-k8s-web-service
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "9bdc9d51-36aa-4b58-8c70-26eaa065cb48"
+spec:
+  type: LoadBalancer
+  selector:
+    app: django-k8s-web-deployment
+  ports:
+    - name: http
+      protocol: TCP
+      port: 443
+      targetPort: 8000
+    

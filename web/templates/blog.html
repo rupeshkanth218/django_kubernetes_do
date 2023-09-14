@@ -6,8 +6,13 @@ Blog
 {% endblock %}
 
 {% block content %}
-        
-    <h1>COMING SOON</h1>
+       
+    
+        {{ post.title }}
+        <br>
+        {{ post.body | safe }}
+
+    
     
     
 {% endblock %}
