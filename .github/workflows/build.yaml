@@ -3,10 +3,7 @@ name: Build docker Image and push to Registry
 on:
   workflow_call:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  
 
 jobs:
 
