@@ -8,3 +8,4 @@ requests
 django-extensions==3.2.3
 django-ckeditor==6.7.0
 django-js-asset==2.1.0
+whitenoise==6.5.0
