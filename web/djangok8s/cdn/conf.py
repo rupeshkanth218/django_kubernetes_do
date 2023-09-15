@@ -11,3 +11,9 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_LOCATION='https://django-k8s.blr1.digitaloceanspaces.com'
 DEFAULT_FILE_STORAGE="djangok8s.cdn.backends.MediaRootS3BotoStorage"
 STATICFILES_STORAGE="djangok8s.cdn.backends.StaticRootS3BotoStorage"
+
+AWS_QUERYSTRING_AUTH = False
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_RESTRICT_BY_DATE = False
+CKEDITOR_BASEPATH = "https://blr1.digitaloceanspaces.com/django-k8s/static/ckeditor/ckeditor/"
